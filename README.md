@@ -1,2 +1,2 @@
 # the-artwear-ecom-catalog
-Demo day project
+Resilient Coders Demo Day Project
