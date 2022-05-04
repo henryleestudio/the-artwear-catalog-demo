@@ -1,2 +1,2 @@
-# the-artwear-ecom-catilog
+# the-artwear-ecom-catalog
 Demo day project
