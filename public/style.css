@@ -25,11 +25,10 @@ body {
 }
 
 #logo {
-  position: absolute;
-  width: 10%;
+  width: 9.5rem;
   float: left;
-  margin-top: 74.6rem;
-  margin-left: -41.7rem;
+  margin-top: -13.5rem;
+  margin-left: 4.7rem;
   opacity: 0.7;
 }
 
@@ -79,48 +78,10 @@ main {
   border: none;
 }
 
-#profileMenu {
-  margin: 0px;
-  display: inline-block;
-  position: fixed;
-  text-decoration: underline;
-  color: #333;
-  font-size: 1.7rem;
-  top: 3rem;
-  right: 4rem;
-}
-
-form {
-  float: left;
-}
-
-input {
-  margin-right: -0.5rem;
-}
-
-button {
-  font-family: 'Open Sans', sans-serif;
-  color: #1B1B1B;
-}
-
-#emailForm {
-  float: left;
-  margin-left: 3rem;
-  /* margin-top: 77rem; */
-}
-
-/* .midSec {
-} */
-
 ul, li {
   text-decoration: none;
   list-style: none;
-  font-family: 'Open Sans', sans-serif;
-  color: #1B1B1B;
-}
-
-li .markedDon {
-  color: grey;
+  color: #333;
 }
 
 .siteTitle li {
@@ -141,8 +102,6 @@ li .markedDon {
   margin-top: 3.4rem;
   margin-left: 1rem;
 } 
-
-profileSiteTitle
 
 #title {
   margin-left: -2rem;
@@ -372,6 +331,13 @@ span {
   margin-top: 20rem;
   text-align: left;
   margin-left: 75%;
+  width: 25rem;
+}
+
+#quote-1 span {
+  color: #48b7c2;
+  font-weight: bolder;
+  font-size: 3rem;
 }
 
 #quote-2 {
@@ -380,10 +346,14 @@ span {
   margin-right: 75%;
 }
 
-#quote-3 {
-  margin-top: 0rem;
-  text-align: left;
-  margin-left: 75%;
+#quote-2 span {
+    color: #3bc1cc;
+    margin-left: -1px;
+    font-size: 7rem;
+    font-weight: 100;
+    margin-top: -47rem;
+    line-height: 9rem;
+    margin-bottom: 29rem;
 }
 
 .title {
@@ -391,16 +361,20 @@ span {
 }
 
 #title-1 span {
-  font-size: 7rem;
   text-align: left;
   color: #333;
-  margin-left: -0.2rem;
+  margin-left: -0.5rem;
+  font-size: 5rem;
+  font-weight: 200;
+  margin-top: 4rem;
 }
 
 #title-1 {
-  font-size: 5rem;
+  font-size: 3.4rem;
   text-align: left;
   color: #333;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
 }
 
 .artShirtExample {
@@ -440,24 +414,20 @@ span {
 #quote-3 {
   margin-top: 2rem;
   text-align: right;
-  margin-left: 62%;
+  margin-left: 65%;
   font-size: 6rem;
   font-weight: bolder;
   letter-spacing: 0.3rem;
   line-height: 7rem;
+  width: 25rem;
 }
 
-/* #quote-4 {
-  position: absolute;
-  text-align: right;
-  padding-top: 0rem;
-  margin-left: 62%;
-  font-size: 6rem;
-  font-weight: bolder;
+#quote-4 {
+  padding: 5rem 0rem;
+  margin-top: 1rem;
   letter-spacing: 0.3rem;
-  color: white;
-  line-height: 7rem;
-} */
+  color: #333;
+}
 
 .dropdown-item {
   background-color: #00000000;
@@ -488,7 +458,7 @@ span {
 .gradientCatalog-1 {
   position: absolute;
   display: block;
-  margin-top: -26.9rem;
+  margin-top: -29.9rem;
   height: 30rem;
   width: 100%;
 }
@@ -529,7 +499,7 @@ hr {
 
 button {
   font-size: 4rem;
-  font-weight: 100;
+  font-weight: 300;
   color: white;
   background-color: #3bc1cc54;
   padding: 1rem;
@@ -537,5 +507,106 @@ button {
   border-radius: 5px;
     /* border: 1px solid #3bc1cc; */
   /* background-color: #ffffff00; */
+}
+
+footer input {
+  width: 20rem;
+  border: 1px solid #333;
+  border-radius: 3px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 20rem;
+  border: 1px solid #333;
+  border-radius: 3px;
+  border-top-right-radius: 0px;
+  font-size: 1.1rem;
+  border-bottom-right-radius: 0px;
+  font-size: 1.3rem;
+  padding: 0.4rem;
+}
+
+footer button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left: 0.2rem;
+  z-index: 1;
+}
+
+footer {
+  margin: 7.5rem;
+}
+
+footer form {
+  float: none;
+  margin: 0px;
+  display: block;
+  margin: auto;
+}
+
+form button {
+  padding: 0.7rem 3rem;
+}
+
+form select {
+  font-size: 2.5rem;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 0.3rem;
+}
+
+form span {
+  font-size: 2.7rem;
+  margin-right: 1rem;
+  color: #333;
+  letter-spacing: 0.3rem;
+}
+
+#createArtwearSec h1 {
+  font-size: 5rem;
+  font-weight: 200;
+  margin-top: 4rem;
+}
+
+#createArtwearSec h2 {
+  margin-top: 1.6rem;
+}
+
+.btn-lg {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  background-color: #3bc1cc54;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 7.5rem 0rem;
+}
+
+.headerTxt {
+  font-size: 5rem;
+  font-weight: 200;
+  margin: 4rem 0rem;
+}
+
+a {
+  color: #3bc1cc;
+}
+
+.btn-warning:hover {
+  color: #3bc1cc;
+  background-color: #fff;
+  border-color: none;
+}
+
+#createArtwear-center {
+  display: inline-block;
+}
+
+.artShirtExample {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
 }
 
