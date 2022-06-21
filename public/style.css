@@ -20,19 +20,28 @@ body {
   text-align: center;
 }
 
-.jumbotron{
+.jumbotron {
   display: none; 
 }
 
-#coverImg{
+#logo {
+  width: 10%;
+  float: left;
+  margin-top: 40rem;
+  margin-left: 4rem;
+}
+
+#coverImg {
   height: 75vh;
 }
 
-#catalogImg-1{
+.catalogImg-1 {
   background-image: url(img/catalog-1.jpg);
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 140vh;
+  width: 100%;
 }
 
 #product-1 {
@@ -44,12 +53,35 @@ main {
   width: 100%;
 }
 
-menu{
+.menu {
   margin: 0px;
   display: inline-block;
   position: fixed;
   text-decoration: underline;
   color: white;
+  font-size: 1.7rem;
+  top: 3rem;
+  right: 4rem;
+  /* background-color: #ffffff36; */
+  /* background-color: #3BC1CC; */
+  padding: 0px 4px 1px 4px;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.btn-secondary {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  background-color: #3333333b;
+  border: none;
+}
+
+#profileMenu {
+  margin: 0px;
+  display: inline-block;
+  position: fixed;
+  text-decoration: underline;
+  color: #333;
   font-size: 1.7rem;
   top: 3rem;
   right: 4rem;
@@ -99,6 +131,16 @@ li .markedDon {
   margin-left: 1rem;
 }
 
+#profileSiteTitle li {
+  float: left;
+  font-size: 1.8rem;
+  color: #333;
+  margin-top: 3.4rem;
+  margin-left: 1rem;
+} 
+
+profileSiteTitle
+
 #title {
   margin-left: -2rem;
   font-weight: 200;
@@ -131,6 +173,274 @@ span {
   font-size: 1.6rem;
   margin-left: 5px;
   font-size: 2rem;
+}
+
+.tshirtOptions {
+  border: 1px solid black;
+  width: 33%;
+  height: 20px;
+}
+
+.tshirtSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#tshirtForm {
+  text-align: center;
+  width: 100%;
+}
+
+.optionTitle {
+  display: block;
+  margin: 2rem 2rem;
+}
+
+#submitButton {
+  margin-top: 2rem;
+}
+
+#createArtwearSec {
+  text-align: center;
+  padding: 3%;
+}
+
+#tshirt {
+  width: 100%;
+  padding: 2% 12%;
+  z-index: -3;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+}
+/* SHIRT COLORS HERE  */ 
+
+.displayShirt {
+  display: block;
+  width: 100%;
+  z-index: -3;
+  grid-area: overlap;
+}
+
+/* SHIRT ART HERE  */ 
+
+.displayArt {
+  display: block;
+  grid-area: overlap;
+  align-self: center;
+  justify-self: center;
+  width: 30%;
+  z-index: -2;
+  opacity: .8;
+}
+/* SHIRT ACCENT HERE  */ 
+
+.displayAccents {
+  display: block;
+  grid-area: overlap;
+  align-self: center;
+  justify-self: center;
+  width: 30%;
+  z-index: -1;
+  opacity: .8;
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid white;
+}
+
+/* COLOR OPTIONS HERE  */ 
+
+.color-1 {
+  background-image: url(img/tshirts-colors/tshirt-black.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.color-2 {
+  background-image: url(img/tshirts-colors/tshirt-peach.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.color-3 {
+  background-image: url(img/tshirts-colors/tshirt-pear.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* COLOR OPTIONS HERE  */ 
+
+.art-1 {
+  background-image: url(img/backgrounds/background-1.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.art-2 {
+  background-image: url(img/backgrounds/background-2.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.art-3 {
+  background-image: url(img/backgrounds/background-3.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ACCENTS OPTIONS HERE  */ 
+
+.accent-1 {
+  background-image: url(img/foreground/foreground-1.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.accent-2 {
+  background-image: url(img/foreground/foreground-2.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.accent-3 {
+  background-image: url(img/foreground/foreground-3.png);
+  height: 23rem;
+  width: 23rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#title-2 {
+  transform: rotate(270deg);
+}
+
+#catalog-1 .quote {
+  color: white;
+}
+
+.quoteSpan {
+  color: white;
+}
+
+.quoteSpan {
+  display: block;
+}
+
+#quote-1 {
+  margin-top: 20rem;
+  text-align: left;
+  margin-left: 75%;
+}
+
+#quote-2 {
+  margin-top: 23rem;
+  text-align: right;
+  margin-right: 75%;
+}
+
+#quote-3 {
+  margin-top: 10rem;
+  text-align: left;
+  margin-left: 75%;
+}
+
+.title {
+  display: block;
+}
+
+#title-1 {
+  text-align: left;
+}
+
+.artShirtExample {
+  background-image: url(img/shirt-example.png);
+  height: 35rem;
+  width: 35rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  margin: auto;
+}
+
+#CustomArtShirt {
+  padding: 5rem;
+}
+
+#artShirtTxt {
+  text-align: left;
+  color: black;
+  width: 60%;
+}
+
+#catalog-2 {
+  background-color: #3bc1cc;
+  background-image: url(img/catalog-2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 140vh;
+} 
+
+#quote-4 {
+  color: white;
+  text-align: right;
+  padding-top: 30rem;
+  margin-right: 70%;
+}
+
+.dropdown-item {
+  background-color: #00000000;
+}
+
+.slideImg {
+  height: 100%;
+}
+
+#sideImg-1 {
+  float: left;
+  margin-left: -5rem;
+}
+
+#sideImg-2 {
+  float: right;
+  margin-right: -5rem;
+}
+
+.colorCatalog-2 {
+  height: 10rem;
+  width: 100%;
+  background-color: #3bc1cc;
 }
 
 

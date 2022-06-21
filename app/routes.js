@@ -7,67 +7,117 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    app.get('/profile', (req, res) => {
-      db.collection('interests').find().toArray((err, result) => {
+    app.get('/profile', isLoggedIn, (req, res) => {
+      db.collection('design').find(
+        { 
+          userId : req.user._id 
+        }
+        ).toArray((err, result) => {     
         if (err) return console.log(err)
-        res.render('profile.ejs', {interests: result})
+        res.render('profile.ejs', {designEjsVar : result[0]})
       })
     })
   
-    app.post('/newEntry', (req, res) => {
+    app.post('/newEntry', isLoggedIn, (req, res) => {
       console.log(req.body)
-      const interests = {
-        entry: req.body.entry, 
-        completed: false 
+      const newDesign = {
+        userId : req.user._id,
+        size: req.body.size,
+        shirtColor: req.body.color,
+        art: req.body.art,
+        accents: req.body.accent
       }
-      db.collection('interests').insertOne(interests, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('/profile')
-      })
-    })
-  
-    app.put('/upDateEntry', (req, res) => {
-      db.collection('interests').findOneAndUpdate(
-        { entry: req.body.entry },
+      console.log('req.user:', req.user)
+      db.collection('design').findOneAndUpdate(
+        { userId : req.user._id },
         {
-          $set: {
-            completed: req.body.completed
-          }
+          $set: newDesign
         },
         {
-          upsert: false
+          upsert: true
         }
       )
-    .then(result => res.json('Success'))
-    .catch(error => console.error(error))  
+      .then(result => res.redirect('/profile'))
+      .catch(error => console.error(error)) 
     })
 
-    app.delete('/taskDelete', (req, res) => {
-      db.collection('interests').deleteMany(
-        { completed: true }
-      )
-      .then(result => {
-        if (result.deletedCount === 0) {
-          return res.json('None to delete')
-        }
-        res.json(`Deleted`)
+    app.post('/emailList', (req, res) => {
+      console.log("post req:",req.body)
+      db.collection('emailList').save(
+        {
+          email: req.body.email 
+        }, 
+        (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.redirect('/')
       })
-      .catch(error => console.error(error))
     })
 
-    app.delete('/clearAll', (req, res) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-        db.collection('interests').deleteMany(
-      )
-      .then(result => {
-        if (result.deletedCount === 0) {
-          return res.json('None to delete')
-        }
-        res.json(`Deleted`)
-      })
-      .catch(error => console.error(error))
-    })
+    // app.put('/upDateEntry', (req, res) => {
+    //   db.collection('interests').findOneAndUpdate(
+    //     { entry: req.body.entry },
+    //     {
+    //       $set: {
+    //         completed: req.body.completed
+    //       }
+    //     },
+    //     {
+    //       upsert: false
+    //     }
+    //   )
+    // .then(result => res.json('Success'))
+    // .catch(error => console.error(error))  
+    // })
+
+    // app.delete('/taskDelete', (req, res) => {
+    //   db.collection('interests').deleteMany(
+    //     { completed: true }
+    //   )
+    //   .then(result => {
+    //     if (result.deletedCount === 0) {
+    //       return res.json('None to delete')
+    //     }
+    //     res.json(`Deleted`)
+    //   })
+    //   .catch(error => console.error(error))
+    // })
+
+    // app.delete('/clearAll', (req, res) => {
+  
+    //     db.collection('interests').deleteMany(
+    //   )
+    //   .then(result => {
+    //     if (result.deletedCount === 0) {
+    //       return res.json('None to delete')
+    //     }
+    //     res.json(`Deleted`)
+    //   })
+    //   .catch(error => console.error(error))
+    // })
 
 
 
