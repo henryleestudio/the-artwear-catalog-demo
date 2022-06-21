@@ -25,10 +25,12 @@ body {
 }
 
 #logo {
+  position: absolute;
   width: 10%;
   float: left;
-  margin-top: 40rem;
-  margin-left: 4rem;
+  margin-top: 74.6rem;
+  margin-left: -41.7rem;
+  opacity: 0.7;
 }
 
 #coverImg {
@@ -67,6 +69,7 @@ main {
   padding: 0px 4px 1px 4px;
   border-radius: 2px;
   color: #fff;
+  z-index: 5;
 }
 
 .btn-secondary {
@@ -240,7 +243,7 @@ span {
   grid-area: overlap;
   align-self: center;
   justify-self: center;
-  width: 30%;
+  width: 27.4%;
   z-index: -1;
   opacity: .8;
 }
@@ -338,14 +341,22 @@ span {
   height: 23rem;
   width: 23rem;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
-#title-2 {
+#spanRotate {
+  float: left;
+  margin-top: 11rem;
+  margin-left: 0rem;
   transform: rotate(270deg);
+  /* display: inline-block; */
+  margin-top: 4rem;
 }
 
 #catalog-1 .quote {
+  color: white;
+}
+.quote {
   color: white;
 }
 
@@ -370,7 +381,7 @@ span {
 }
 
 #quote-3 {
-  margin-top: 10rem;
+  margin-top: 0rem;
   text-align: left;
   margin-left: 75%;
 }
@@ -379,14 +390,23 @@ span {
   display: block;
 }
 
-#title-1 {
+#title-1 span {
+  font-size: 7rem;
   text-align: left;
+  color: #333;
+  margin-left: -0.2rem;
+}
+
+#title-1 {
+  font-size: 5rem;
+  text-align: left;
+  color: #333;
 }
 
 .artShirtExample {
   background-image: url(img/shirt-example.png);
-  height: 35rem;
-  width: 35rem;
+  height: 45rem;
+  width: 45rem;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
@@ -398,9 +418,14 @@ span {
 }
 
 #artShirtTxt {
-  text-align: left;
-  color: black;
-  width: 60%;
+  display: block;
+  margin: auto;
+  font-weight: 300;
+  font-size: 3rem;
+  margin-top: 5.5rem;
+  color: #333;
+  width: 100%;
+  line-height: 6rem;
 }
 
 #catalog-2 {
@@ -412,37 +437,105 @@ span {
   height: 140vh;
 } 
 
-#quote-4 {
-  color: white;
+#quote-3 {
+  margin-top: 2rem;
   text-align: right;
-  padding-top: 30rem;
-  margin-right: 70%;
+  margin-left: 62%;
+  font-size: 6rem;
+  font-weight: bolder;
+  letter-spacing: 0.3rem;
+  line-height: 7rem;
 }
+
+/* #quote-4 {
+  position: absolute;
+  text-align: right;
+  padding-top: 0rem;
+  margin-left: 62%;
+  font-size: 6rem;
+  font-weight: bolder;
+  letter-spacing: 0.3rem;
+  color: white;
+  line-height: 7rem;
+} */
 
 .dropdown-item {
   background-color: #00000000;
 }
 
-.slideImg {
+.sideImg {
   height: 100%;
+  /* opacity: 0.3; */
 }
 
 #sideImg-1 {
   float: left;
-  margin-left: -5rem;
+  /* margin-left: -5rem; */
 }
 
 #sideImg-2 {
   float: right;
-  margin-right: -5rem;
+  /* margin-right: -5rem; */
 }
 
 .colorCatalog-2 {
   height: 10rem;
   width: 100%;
   background-color: #3bc1cc;
+  opacity: 0.3;
 }
 
+.gradientCatalog-1 {
+  position: absolute;
+  display: block;
+  margin-top: -26.9rem;
+  height: 30rem;
+  width: 100%;
+}
 
+hr {
+  margin-top: 4.5rem;
+  margin-bottom: 3rem;
+  margin-left: 32.1rem;
+  width: 19rem;
+  border: .25px solid #333;
+}
 
+#quote-5 {
+  text-align: left;
+  float: right;
+  margin-right: 4.2rem;
+  font-size: 1.5rem;
+}
+
+#catalogImg-3 {
+  background-image: url(img/catalog-3-3.jpg);
+  background-position: right;
+  background-size: cover;
+  display: block;
+  margin: auto;
+  height: 40rem;
+  width: 55rem;
+}
+
+#title-2 {
+  margin: 7rem 0rem;
+}
+
+.quoteSpan {
+  color: #333;
+  margin-left: -1px;
+}
+
+button {
+  font-size: 4rem;
+  font-weight: 100;
+  color: white;
+  background-color: #3bc1cc54;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+    /* border: 1px solid #3bc1cc; */
+  /* background-color: #ffffff00; */
+}
 
