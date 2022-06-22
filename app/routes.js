@@ -2,6 +2,19 @@ module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
 
+    const multer = require("multer")
+    const path = require('path')
+    const storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, "./public/img/uploaded/")
+      },
+      filename:(req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname))
+      }
+    })
+
+    const upload = multer({storage: storage})
+
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
         res.render('index.ejs');
@@ -12,37 +25,43 @@ module.exports = function(app, passport, db) {
         { 
           userId : req.user._id 
         }
-        ).toArray((err, result) => {     
+        ).toArray((err, result) => { 
         if (err) return console.log(err)
-        res.render('profile.ejs', {designEjsVar : result[0]})
+        res.render('profile.ejs', {
+          designEjsVar : result, 
+          img : result[0] ? result[0].img.split('public/')[1] : "" 
+        })
       })
     })
+
+    app.get('/designs', isLoggedIn, function(req, res) {
+      db.collection('design').find().toArray((err, result) => {
+        if (err) return console.log(err)
+        res.render('myDesigns.ejs', {
+          user : req.user,
+          design: result
+        })
+      })
+  });
   
-    app.post('/newEntry', isLoggedIn, (req, res) => {
-      console.log(req.body)
+    app.post('/newEntry', isLoggedIn, upload.single("img"), (req, res) => {
       const newDesign = {
         userId : req.user._id,
         size: req.body.size,
         shirtColor: req.body.color,
         art: req.body.art,
-        accents: req.body.accent
+        accents: req.body.accent,
+        // img: req.file.path
       }
       console.log('req.user:', req.user)
-      db.collection('design').findOneAndUpdate(
-        { userId : req.user._id },
-        {
-          $set: newDesign
-        },
-        {
-          upsert: true
-        }
+      db.collection('design').insert(
+        newDesign,
       )
-      .then(result => res.redirect('/profile'))
+      .then(result => res.redirect('/designs'))
       .catch(error => console.error(error)) 
     })
 
     app.post('/emailList', (req, res) => {
-      console.log("post req:",req.body)
       db.collection('emailList').save(
         {
           email: req.body.email 
@@ -54,76 +73,22 @@ module.exports = function(app, passport, db) {
       })
     })
 
+    app.delete('/deleteDesign', (req, res) => {
+      console.log('req.body.color:', req.body.color)
+      console.log('req.body.art:', req.body.art)
+      console.log('req.body.accent:', req.body.accent)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    // app.put('/upDateEntry', (req, res) => {
-    //   db.collection('interests').findOneAndUpdate(
-    //     { entry: req.body.entry },
-    //     {
-    //       $set: {
-    //         completed: req.body.completed
-    //       }
-    //     },
-    //     {
-    //       upsert: false
-    //     }
-    //   )
-    // .then(result => res.json('Success'))
-    // .catch(error => console.error(error))  
-    // })
-
-    // app.delete('/taskDelete', (req, res) => {
-    //   db.collection('interests').deleteMany(
-    //     { completed: true }
-    //   )
-    //   .then(result => {
-    //     if (result.deletedCount === 0) {
-    //       return res.json('None to delete')
-    //     }
-    //     res.json(`Deleted`)
-    //   })
-    //   .catch(error => console.error(error))
-    // })
-
-    // app.delete('/clearAll', (req, res) => {
-  
-    //     db.collection('interests').deleteMany(
-    //   )
-    //   .then(result => {
-    //     if (result.deletedCount === 0) {
-    //       return res.json('None to delete')
-    //     }
-    //     res.json(`Deleted`)
-    //   })
-    //   .catch(error => console.error(error))
-    // })
-
-
-
-
-
-
+      db.collection('design').findOneAndDelete(
+        {
+          shirtColor: req.body.color,
+          art: req.body.art,
+          accents: req.body.accent
+        }, 
+        (err, result) => {
+        if (err) return res.send(500, err)
+        res.send('Message deleted!')
+      })
+    })
 
     // // PROFILE SECTION =========================
     // app.get('/profile', isLoggedIn, function(req, res) {

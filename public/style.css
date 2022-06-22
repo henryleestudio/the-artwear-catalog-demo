@@ -54,6 +54,18 @@ main {
   width: 100%;
 }
 
+.dropdown-toggle::after {
+  border-right: 0em solid transparent;
+}
+
+.show>.btn-secondary.dropdown-toggle {
+  border: none;
+}
+
+.btn-secondary:hover {
+  border: none;
+}
+
 .menu {
   margin: 0px;
   display: inline-block;
@@ -67,7 +79,22 @@ main {
   /* background-color: #3BC1CC; */
   padding: 0px 4px 1px 4px;
   border-radius: 2px;
-  color: #fff;
+  z-index: 5;
+}
+
+menu {
+  margin: 0px;
+  display: inline-block;
+  position: fixed;
+  text-decoration: underline;
+  color: #333;
+  font-size: 1.7rem;
+  top: 3rem;
+  right: 4rem;
+  /* background-color: #ffffff36; */
+  /* background-color: #3BC1CC; */
+  padding: 0px 4px 1px 4px;
+  border-radius: 2px;
   z-index: 5;
 }
 
@@ -105,7 +132,8 @@ ul, li {
 
 #title {
   margin-left: -2rem;
-  font-weight: 200;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
 }
 
 #tagLine {
@@ -328,7 +356,7 @@ span {
 }
 
 #quote-1 {
-  margin-top: 20rem;
+  margin-top: 16rem;
   text-align: left;
   margin-left: 75%;
   width: 25rem;
@@ -337,11 +365,13 @@ span {
 #quote-1 span {
   color: #48b7c2;
   font-weight: bolder;
-  font-size: 3rem;
+  font-size: 4rem;
+  margin-left: -1.7rem;
+  opacity: 0.9;
 }
 
 #quote-2 {
-  margin-top: 23rem;
+  margin-top: 27rem;
   text-align: right;
   margin-right: 75%;
 }
@@ -378,7 +408,7 @@ span {
 }
 
 .artShirtExample {
-  background-image: url(img/shirt-example.png);
+  background-image: url(img/sample-tshirt.gif);
   height: 45rem;
   width: 45rem;
   background-repeat: no-repeat;
@@ -412,9 +442,9 @@ span {
 } 
 
 #quote-3 {
-  margin-top: 2rem;
-  text-align: right;
-  margin-left: 65%;
+  margin-top: -8rem;
+  text-align: center;
+  margin-left: 73.7%;
   font-size: 6rem;
   font-weight: bolder;
   letter-spacing: 0.3rem;
@@ -509,6 +539,12 @@ button {
   /* background-color: #ffffff00; */
 }
 
+button:hover {
+  background-color: white;
+  color: #3bc1cc;
+  border: 1px solid #3bc1cc;
+}
+
 footer input {
   width: 20rem;
   border: 1px solid #333;
@@ -585,6 +621,14 @@ form span {
   margin: 7.5rem 0rem;
 }
 
+.btn-lg:active {
+  background-color: #fff;
+}
+
+.btn-lg:hover {
+  border: 1px solid #3bc1cc;
+}
+
 .headerTxt {
   font-size: 5rem;
   font-weight: 200;
@@ -610,3 +654,63 @@ a {
   margin-bottom: 2rem;
 }
 
+.dropdown-menu {
+  z-index: 5;
+  float: left;
+  right: 64rem;
+  min-width: 8.7rem;
+  padding: 0.5rem 0;
+  margin-top: -1px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: left;
+  list-style: none;
+  background-color: #ffffff91;
+  background-clip: padding-box;
+  border: 1px solid #3bc1cc;
+  border-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+#designsButton {
+ display: block;
+ margin: auto;
+ margin-top: 5rem;
+}
+
+#designsButton:hover {
+  color: #3bc1cc;
+  background-color: #fff;
+  border-color: none;
+  /* list-style: none;
+  pointer-events: none;
+  text-decoration: none; */
+ }
+
+ a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  }
+
+  .col-sm-6  {
+    max-width: none;
+  }
+
+  #imgUpload {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    background-color: #3bc1cc54;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+      /* border: 1px solid #3bc1cc; */
+    /* background-color: #ffffff00; */
+  }
+
+  #customArtSec {
+    height: 23rem;
+    width: 23rem;
+    border: 1px solid #333;
+    display: block;
+    margin: auto;
+  }

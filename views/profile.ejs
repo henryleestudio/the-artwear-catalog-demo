@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" type="image/webp" href="img/favicon.webp">
+  <link rel="icon" type="image/png" href="img/myIcon.png" />
 
   <title>The Artwear Catalog</title>
 
@@ -17,16 +17,7 @@
 
 <body>
   <header>
-    <div class="menu dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        menu
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/">home</a>
-        <a class="dropdown-item" href="/login">login | sign up</a>
-        <a class="dropdown-item" href="/profile">profile</a>
-      </div>
-  </div>
+    <a href="/"><menu>home</menu></a>
 
     <h1 id="profileSiteTitle" class="siteTitle">
         <ul>
@@ -49,16 +40,8 @@
       <img class="displayAccents" src="img/foreground/foreground-1.png" alt="">
     </section>
 
-    <form id="tshirtForm" action="/newEntry" method="post">
-      <span>size:</span>
-
-      <select name="size" id="sizeInput">
-        <option value="small">small</option>
-        <option value="medium">medium</option>
-        <option value="large">large</option>
-        <option value="x-large">x-large</option>
-        <option value="2x-large">2x-large</option>
-      </select>
+    <form id="tshirtForm" action="/newEntry" method="POST" enctype="multipart/form-data">
+      <span>Image Upload:</span>
 
       <span class="optionTitle">color:</span>
 
@@ -117,13 +100,28 @@
         </label>
       </section>
 
+      <span class="optionTitle">custom artwork:</span>
+
+      <input id="imgUpload" type="file" name="img">
+
+      <section id="customArtSec">
+        <label>
+          <input type="radio" name="customImg" value="customOne" checked>
+          <div class="customArtBox tshirtOptions" style="
+            background-image: url('<%= img %>'); 
+            height: 23rem;
+            width: 23rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+          "></div>
+        </label>
+      </section>
+
       <button id="submitButton" type="submit">create</button>
     </form>
   </main>
 
-  <script>
-    const designEjsVar = <%- designEjsVar ? JSON.stringify(designEjsVar) : 'undefined'%>
-  </script>
+ 
 
   <script src="main.js"></script>
 </body>

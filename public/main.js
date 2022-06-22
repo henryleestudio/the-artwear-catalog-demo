@@ -16,6 +16,21 @@ const accentUrlLookUp = {
   accentThree : 'img/foreground/foreground-3.png'
 }
 
+const customUrlLookUp = {
+  customOne : document.querySelector(".customArtBox").style.backgroundImage
+}
+
+// for art option swap
+document.querySelector('.customArtBox').addEventListener("click", customOption)
+
+function customOption () {
+  console.log('hello')
+  console.log('customUrlLookUp.customOne:', customUrlLookUp.customOne.split('"')[1])
+  const customImgUrl = customUrlLookUp.customOne.split('"')[1]
+  document.querySelector(".displayArt").src = customImgUrl
+}
+
+
 // for tshirt color option swap
 document.querySelectorAll('#colorSection .tshirtOptions').forEach(element => {
   element.addEventListener("click", colorOptions)
@@ -81,7 +96,57 @@ function accentOptions () {
   document.querySelector(".displayAccents").src=accentUrl
 }
 
-// adding the other option to render
+let deleteBtn = document.getElementsByClassName("deleteBtn");
+
+Array.from(deleteBtn).forEach(function(element) {
+  element.addEventListener('click', function(){
+
+    const designGrandParent = this.parentNode.parentNode
+
+    let shirtColor = designGrandParent.querySelector(".displayShirt").src
+    let art = designGrandParent.querySelector(".displayArt").src
+    let accents = designGrandParent.querySelector(".displayAccents").src
+
+    const designLoop = [shirtColor, art, accents]
+
+    designLoop.forEach(str => {
+      const urlSplit = str.split('io/')[1]
+    
+      for (const tshirty in colorUrlLookUp) {
+        if (colorUrlLookUp[tshirty] === urlSplit) {
+          shirtColor = tshirty
+        }
+      }
+    
+      for (const artsy in artUrlLookUp) {
+        if (artUrlLookUp[artsy] === urlSplit) {
+          art = artsy
+        }
+      }
+    
+      for (const accenty in accentUrlLookUp) {
+        if (accentUrlLookUp[accenty] === urlSplit) {
+          accents = accenty
+        }
+      }
+    })
+
+    fetch('/deleteDesign', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        color : shirtColor,
+        art : art,
+        accent : accents
+      })
+    }).then(function (response) {
+      window.location.reload()
+    })
+  })
+})
+
 if (designEjsVar) {
   const tshirtUrl = colorUrlLookUp[designEjsVar.shirtColor]
   document.querySelector(".displayShirt").src=tshirtUrl
