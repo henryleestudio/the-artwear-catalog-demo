@@ -26,10 +26,13 @@ module.exports = function(app, passport, db) {
           userId : req.user._id 
         }
         ).toArray((err, result) => { 
+          console.log('result:', result)
+          const imgData = result.length > 0 ? result[result.length-1].img.split('public/')[1] : ""
+          console.log(imgData)
         if (err) return console.log(err)
         res.render('profile.ejs', {
           designEjsVar : result, 
-          img : result[0] ? result[0].img.split('public/')[1] : "" 
+          img : imgData
         })
       })
     })
@@ -45,13 +48,15 @@ module.exports = function(app, passport, db) {
   });
   
     app.post('/newEntry', isLoggedIn, upload.single("img"), (req, res) => {
+      const imgLogic = req.file ? req.file.path : req.body.customImg
+
       const newDesign = {
         userId : req.user._id,
         size: req.body.size,
         shirtColor: req.body.color,
         art: req.body.art,
         accents: req.body.accent,
-        // img: req.file.path
+        img: imgLogic 
       }
       console.log('req.user:', req.user)
       db.collection('design').insert(

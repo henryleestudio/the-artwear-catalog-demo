@@ -17,11 +17,13 @@ const accentUrlLookUp = {
 }
 
 const customUrlLookUp = {
-  customOne : document.querySelector(".customArtBox").style.backgroundImage
+  customOne :  document.querySelector(".customArtBox") ?document.querySelector(".customArtBox").style.backgroundImage : ""
 }
 
 // for art option swap
-document.querySelector('.customArtBox').addEventListener("click", customOption)
+if (document.querySelector('.customArtBox')) {
+  document.querySelector('.customArtBox').addEventListener("click", customOption)
+}
 
 function customOption () {
   console.log('hello')
@@ -100,6 +102,7 @@ let deleteBtn = document.getElementsByClassName("deleteBtn");
 
 Array.from(deleteBtn).forEach(function(element) {
   element.addEventListener('click', function(){
+    console.log('hello')
 
     const designGrandParent = this.parentNode.parentNode
 

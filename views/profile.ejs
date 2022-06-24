@@ -43,6 +43,8 @@
     <form id="tshirtForm" action="/newEntry" method="POST" enctype="multipart/form-data">
       <span>Image Upload:</span>
 
+      <input id="imgUpload" type="file" name="img">
+
       <span class="optionTitle">color:</span>
 
       <section id="colorSection" class="tshirtSec">
@@ -102,11 +104,9 @@
 
       <span class="optionTitle">custom artwork:</span>
 
-      <input id="imgUpload" type="file" name="img">
-
       <section id="customArtSec">
         <label>
-          <input type="radio" name="customImg" value="customOne" checked>
+          <input type="radio" name="customImg" value="<%= img %>" checked>
           <div class="customArtBox tshirtOptions" style="
             background-image: url('<%= img %>'); 
             height: 23rem;
@@ -121,7 +121,6 @@
     </form>
   </main>
 
- 
 
   <script src="main.js"></script>
 </body>
