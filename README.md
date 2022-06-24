@@ -1,7 +1,7 @@
 # The Artwear Catalog
 Resilient Coders Demo Day - Full stack application
 
-The Artwear Catalog is an art / fashion exhibition for one of a kind, hand painted, art to wear pieces. It showcases the co-creative talents of models, photographers, designers, and artists of the creative-professional community, and has a custom art to wear interface that enables the user to create their own art to wear.
+The Artwear Catalog is an art / fashion exhibition for one of a kind, hand painted, art to wear pieces. It showcases the co-creative talents of models, photographers, designers, and artists in the creative-professional community in Philadelphia, and has a custom art to wear interface that enables the user to create their own art to wear.
 
 JavaScript | Node.js | Express | Mongodb | Bootstrap | Graphic Design | Graphic Art | Photoshop CC | Illustrator CC | Indesign CC
 
@@ -26,7 +26,7 @@ Link to project: http://live-demos.com/
 <img width="1437" alt="Screen Shot 2022-06-24 at 7 00 02 PM" src="https://user-images.githubusercontent.com/101936420/175736870-163ad5e1-cf46-4b5e-b82c-d890a2e98fcc.png">
 
 ## Design
-The design concept is inspired by the high fashion catalog aesthetic, so I decided to design a clean and spacious style layout with dynamic typographic, in relation to the catalog style photography to embody a modern art gallery look and feel. All art pieces are made by me or in collaboration with another artist.   
+This design concept is inspired by the high fashion catalog aesthetic, so I decided to design a clean and spacious style layout with dynamic typographic, in relation to the catalog style photography to embody a modern art gallery look and feel. All art pieces are made by yours truly or in collaboration with another artist. I was intentional about not using a template for this project. Graphic design work is done by scratch.
 
 <p align="left">
   <a href="https://henrylee.studio/" target="_blank">
