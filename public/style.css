@@ -463,6 +463,10 @@ span {
   background-color: #00000000;
 }
 
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open .dropdown-toggle.btn-warning {
+  background-color: white;
+}
+
 .sideImg {
   height: 100%;
   /* opacity: 0.3; */
